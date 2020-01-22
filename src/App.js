@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 function JSONCall(standardName) {
@@ -15,6 +14,7 @@ function JSONCall(standardName) {
   request.responseType = 'json';
   request.send();
   request.onload = function() {
+    var data = request.response;
     var uncutASIN = JSON.stringify(data[standardName][0]).split(":")[1];
     var cutASIN = (uncutASIN.substring(1, uncutASIN.length-2));
     client.itemLookup({
@@ -34,7 +34,7 @@ function JSONCall(standardName) {
 }
 
 function App() {
-  var ASIN = window.standardName;
+  var standardName = window.standardName;
   JSONCall(standardName);
   return (
     <div>
