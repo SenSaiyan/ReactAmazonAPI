@@ -35,9 +35,11 @@ function JSONCall(standardName) {
 
 function App() {
   var ASIN = window.standardName;
-  
+  JSONCall(standardName);
   return (
-    JSONCall(standardName);
+    <div>
+      <p>testestestest</p>
+    </div>
   );
 }
 
