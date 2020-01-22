@@ -29,7 +29,7 @@ function JSONCall(standardName) {
       }
     });
     console.log("client: "+client);
-    return client;
+    // return client;
   }
 }
 
