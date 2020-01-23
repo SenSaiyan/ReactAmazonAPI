@@ -8,7 +8,7 @@ function JSONCall(standardName) {
     awsSecret: "o365sZ9qOTWq8Q1OQfgRs7NMkds2lvyc3k8EBX2o", //secret access key
     awsTag: "amerinatiosta-20" //associate tag
   });
-  var JSONUrl = "https://notstaging.com/SKUtoASINKeyed.json"; //need to host on webstore server
+  var JSONUrl = "../public/SKUtoASINKeyed.json"; //need to host on webstore server
   var request = new XMLHttpRequest();
   request.open('GET', JSONUrl, true);
   request.responseType = 'json';
