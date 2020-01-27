@@ -10,34 +10,31 @@ function JSONCall(standardName) {
   });
   
   var data = require("./SKUtoASINKeyed.json");
-  // console.log(data);
   var uncutASIN = JSON.stringify(data[standardName][0]).split(":")[1];
   var ASIN = (uncutASIN.substring(1, uncutASIN.length-2));
-  console.log(ASIN);
 
   client.itemLookup({
     idType: 'ASIN',
     itemId: ASIN,
     responseGroup: 'Images,ItemAttributes,OfferFull'
   }, function(err, results) {
-    // console.log("client item lookup")
+    console.log("client item lookup "+ASIN)
     if (err) {
-      console.log(err);
+      // let error = new Error('test')
+      console.log("error: "+err);
     } else {
-      console.log("success "+results);
+      console.log("success!: "+results);
     }
   });
 }
 
 function App() {
-  var standardName = window.standardName;
-  
+  // var standard = sessionStorage.getItem("standardName");
+  var standard = "ISO 9001:2015";
   return (
-    <body>
-      <div>
-        {JSONCall('IEC/PAS 61076-3-109 Ed. 1.0 en:2001')}
-      </div>
-    </body>
+    <div>
+      {JSONCall(standard)}
+    </div>
   );
 }
 
